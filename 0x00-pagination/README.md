@@ -1,0 +1,2 @@
+Keyset pagination uses the filter values of the last page to fetch the next set of items. Those columns would be indexed.
+Seek Paging is an extension of Keyset paging. By adding an after_id or start_id URL parameter, we can remove the tight coupling of paging to filters and sorting. Since unique identifiers are naturally high cardinality, we won’t run into issues unlike if sorting by a low cardinality field like state enums or category name.
