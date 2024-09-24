@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Hypermedia pagination
-"""
+'''Pagination module
+'''
+import csv
 import math
 from typing import Tuple, List, Dict
+
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     '''Returns a range of indexes of a pagination param
@@ -10,6 +12,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     first = (page - 1) * page_size
     last = first + page_size
     return (first, last)
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
