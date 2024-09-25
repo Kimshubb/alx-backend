@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 '''Flask application
 '''
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
+
 class Config:
-    """Babelon config
-    see what i did there?
-    """
+    '''the Flask Babel configuration.
+    '''
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -19,11 +19,18 @@ babel = Babel(app)
 app.config.from_object(Config)
 
 
+@babel.localeselector
+def get_locale() -> str:
+    """Retrieves the locale for a web page.
+    """
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+
 @app.route('/')
-def hello():
+def hello() -> str:
     '''the base route
     '''
-    return render_template('0-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':

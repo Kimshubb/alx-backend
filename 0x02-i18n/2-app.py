@@ -30,7 +30,7 @@ def get_locale() -> str:
 def hello() -> str:
     '''the base route
     '''
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 if __name__ == '__main__':
